@@ -53,6 +53,7 @@ h1 {
   flex-wrap: wrap;
   margin: 0 auto;
   max-width: 550px;
+  padding-bottom: 70px;
 }
 
 .main-layout {
