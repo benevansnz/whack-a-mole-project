@@ -1,43 +1,76 @@
 html {
-    font-size: 35px;
-    background: #98BCF4;
+  background: #065BAA;
+  height: 100%;
+  scroll-behavior: smooth;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
 }
 
 body {
-    padding: 0;
-    margin: 0;
-    text-align: center;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 19px;
+  position: relative;
+  height: 100%;
+  display: flex;
+  justify-self: flex-start;
+  align-items: center;
+  flex-flow: row wrap;
+}
+
+audio {
+  visibility: hidden;
+  opacity: 0;
+  flex-basis: 100%;
 }
 
 h1 {
-    text-align: center;
-    font-size: 100px;
-    line-height: 1;
-    margin-bottom: 0;
+  text-align: center;
+  font-size: 100px;
+  margin-top: 0px;
+  margin-bottom: 0;
+  color: #fff;
 }
 
 .score {
-    background:blue;
-    padding: 0 48px;
-    line-height: 1;
-    border-radius: 16px;
-    color: #fff;
-    margin-left: 15px;
+  display: inline-block;
+  background:#21A4DE;
+  padding: 7px;
+  min-width: 30px;
+  line-height: 1;
+  border-radius: 0px;
+  color: #fff;
+  margin-left: 15px;
 }
 
 .game {
-    width: 600px;
-    height: 400px;
-    display:flex;
-    flex-wrap:wrap;
-    margin: 0 auto;
-    
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 0 auto;
 }
 
+.main-layout {
+  height: 100%;
+  max-width: max(80%, 550px);
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
 .hole{
-    flex: 1 0 33.33%;
-    overflow: hidden;
-    position: relative;
+  min-height: 200px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: 150px;
+  overflow: hidden;
+  position: relative;
+}
+
+.button-wrapper {
+  margin: 15px 0;
 }
 
 .hole:after{
@@ -46,14 +79,14 @@ h1 {
     background-size:contain;
     content: '';
     width: 100%;
-    height: 90px;
+    height: 72px;
     position: absolute;
     z-index: 2;
     bottom: -30px;
 }
 
 .mole {
-    background: url('mole.png') bottom center no-repeat;
+    background: url('sam-uffindell.png') bottom center no-repeat;
     background-size: 80%;
     position: absolute;
     top: 100%;
@@ -67,71 +100,80 @@ h1 {
 }
 
 button{
-    width:175px;
-    font-size: 35px;
-    height: 70px;
-    color: #fff;
-    background-color: blue;
-    border-radius: 10px;
-    margin-left: 20px;
-    margin-top: 90px;
+  padding: 0.375rem 1.5rem;
+  color: #fff;
+  background-color: #21A4DE;
+  border: 1px solid #21A4DE;
+  font-size: 1.25rem;
 }
 
-@media (min-width: 667px) and (max-width: 1024px){
-    
-    h1 {
-        display: none;
-    }
-    .score {
-    background:blue;
-    padding: 0 12px;
-    line-height: 1;
-    border-radius: 16px;
-    color: #fff;
-    font-size: 40px;
-    margin-left: 20px;
+button:hover {
+  cursor: pointer;
 }
 
-    .hole.up .mole{
-        top:17px;
-    }
+button[disabled] {
+  background-color: #ddd;
+  color: #333;
+  border-color: #333;
+}
+button[disabled]:hover {
+  cursor: default;
+}
+
+#twitter {
+  padding: 0.375rem 1.5rem;
+  color: #fff;
+  background-color: #21A4DE;
+  border: 1px solid #21A4DE;
+  font-size: 1.25rem;
+  text-decoration: none;
+}
+
+#twitter:hover {
+  text-decoration: underline;
+}
+
+.luxonator {
+  display: none;  /* temporar while beddy-byes */
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  max-width: 300px;
+  
+}
+
+.luxonator img {
+  border: 5px solid #21A4DE;
+  max-width: 100%;
+  width: auto;
+} 
+
+img {
+  max-width: 100%;
+  width: auto;
+}
+
+.mole:hover {
+  cursor: pointer;
+}
+
+#twitter {
+  display: none;
+}
+
+#twitter.show {
+  display: inline-block;
 }
 
 @media (max-width: 667px){
-
-    .game {
-        width: 667px;
-        height: 300px;
-        display:flex;
-        flex-wrap:wrap;
-        margin: 0 auto;
+    .hole {
+      flex-basis: 45%;
     }
-
-    .score{
-        width:35px;
-        font-size: 15px;
-        height: 40px;
-        color: #fff;
-        background-color: blue;
-        border-radius: 10px;
-        margin-left: 10px;
-        margin-top: 10px;
-        padding: 5px;
-        }
-
-        button{
-            margin: 10px 10px 10px 10px;
-            height: 40px;
-            width: 75px;
-            font-size: 15px;
-        }
-
     .hole:after{
         display:block;
         background: url(dirt.png) bottom center no-repeat;
         background-size:contain;
         content: '';
-        max-width: 70%;
         height: 60px;
         position: absolute;
         z-index: 2;
@@ -139,15 +181,13 @@ button{
     }
 
     .mole {
-        background: url('mole.png') bottom center no-repeat;
+        background: url('sam-uffindell.png') bottom center no-repeat;
         background-size: 60%;
         position: absolute;
         top: 100%;
-        max-width: 70%;
         height: 70%;
         transition: all 0.4s;
     }
-
     .hole.up .mole{
         top:50px;
     }
