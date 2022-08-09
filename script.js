@@ -9,8 +9,8 @@ let score = 0;
 let gameTime = 30000; // 30 seconds
 const music = document.getElementById("music");
 const chop = document.getElementById("chop");
-let hashtag = "NaughtyNat";
-let siteEncoding = "";
+let hashtag = "UffImInTrouble";
+let siteEncoding = "%20https%3A%2F%2Fwhack-an-mp.netlify.app%2F";
 music.volume = 0.3;
 
 //create a function to make a random time for mole to pop from the hole

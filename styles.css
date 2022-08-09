@@ -17,7 +17,7 @@ body {
   position: relative;
   height: 100%;
   display: flex;
-  justify-self: flex-start;
+  justify-self: center;
   align-items: center;
   flex-flow: row wrap;
 }
@@ -52,6 +52,7 @@ h1 {
   justify-content: center;
   flex-wrap: wrap;
   margin: 0 auto;
+  max-width: 550px;
 }
 
 .main-layout {
@@ -59,6 +60,8 @@ h1 {
   max-width: max(80%, 550px);
   margin-top: 20px;
   margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .hole{
   min-height: 200px;
