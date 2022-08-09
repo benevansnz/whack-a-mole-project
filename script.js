@@ -49,6 +49,8 @@ function startGame() {
   score = 0;
   music.play();
   button.setAttribute("disabled", true);
+  location.hash = "#game";
+
   peep();
   setTimeout(() => {
     timeUp = true;
